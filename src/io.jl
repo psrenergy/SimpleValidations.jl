@@ -1,20 +1,18 @@
-function dump_errors(path::String)
-    if isfile(path)
-        rm(path)
-    end
-    open(path, "a+") do io
-        print(io, "[")
-        for error_i in eachindex(VALIDATIONS.errors_list)
-            JSON.print(io, Dict(
-                "message" => VALIDATIONS.errors_list[error_i].message, 
-                "validation_type" => typeof(VALIDATIONS.errors_list[error_i].validation_type), 
-                "element_name" => VALIDATIONS.errors_list[error_i].element_name, 
-                "element_collection" => VALIDATIONS.errors_list[error_i].element_collection
-            ))
-            if error_i != VALIDATIONS.num_errors
-                print(io, ",")
-            end
-        end
-        print(io, "]")
+function _create_validation_dict(validation_error::ValidationError)
+    return OrderedDict{String,Any}(
+        "message" => validation_error.message,
+        "element_name" => validation_error.element_name,
+        "element_collection" => validation_error.element_collection,
+        "element_identifier" => validation_error.element_identifier,
+    )
+end
+
+function _create_validation_vector_dict()
+    return [_create_validation_dict(validation_error) for validation_error in VALIDATIONS]
+end
+
+function dump_validation_errors(path::String)
+    Base.open(path, "w") do io
+        return JSON.print(io, _create_validation_vector_dict())
     end
 end
