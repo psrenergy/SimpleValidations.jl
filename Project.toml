@@ -8,7 +8,7 @@ LoggingPolyglot = "211639cc-9b11-4cfd-abc6-8f7477829344"
 OrderedCollections = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 
 [compat]
-LoggingPolyglot = "0.1"
+LoggingPolyglot = "0.1.0"
 JSON = "0.21"
 julia = "1.9"
 OrderedCollections = "1.6"
