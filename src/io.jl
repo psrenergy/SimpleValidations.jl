@@ -7,7 +7,7 @@ function dump_errors(path::String)
         for error_i in eachindex(VALIDATIONS.errors_list)
             JSON.print(io, Dict(
                 "message" => VALIDATIONS.errors_list[error_i].message, 
-                "validation_type" => VALIDATIONS.errors_list[error_i].validation_type, 
+                "validation_type" => typeof(VALIDATIONS.errors_list[error_i].validation_type), 
                 "element_name" => VALIDATIONS.errors_list[error_i].element_name, 
                 "element_collection" => VALIDATIONS.errors_list[error_i].element_collection
             ))
