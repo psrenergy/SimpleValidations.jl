@@ -19,7 +19,7 @@ function validation_error(;
     if isnothing(message)
         message = "Validation error for element '$element_name' in collection '$element_collection' with identifier '$element_identifier'"
     end
-    Log.non_fatal_error(message)
+    @error message
     validation_error =
         ValidationError(message, element_name, element_collection, element_identifier)
     return _add_error(validation_error)
