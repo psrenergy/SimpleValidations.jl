@@ -17,6 +17,9 @@ function validation_error(
     element_identifier::Union{String,Real},
     message::Union{String,Nothing} = nothing,
 )
+    if isnothing(message)
+        message = "Validation error for element '$element_name' in collection '$element_collection' with identifier '$element_identifier'"
+    end
     Log.non_fatal_error(message)
     validation_error =
         ValidationError(message, element_name, element_collection, element_identifier)
