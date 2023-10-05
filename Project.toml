@@ -1,0 +1,8 @@
+name = "SimpleValidations"
+uuid = "5ead8e6a-226e-4abd-9fac-4ba193e998ab"
+authors = ["pedroripper <pedros.ripper@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+LoggingPolyglot = "211639cc-9b11-4cfd-abc6-8f7477829344"
