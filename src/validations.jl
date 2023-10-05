@@ -11,10 +11,10 @@ function init_validations()
     empty!(VALIDATIONS)
 end
 
-function validation_error(
-    element_collection::String,
-    element_name::String,
-    element_identifier::Union{String,Real},
+function validation_error(;
+    element_collection::String = "",
+    element_name::String = "",
+    element_identifier::Union{String,Real} = "",
     message::Union{String,Nothing} = nothing,
 )
     if isnothing(message)
