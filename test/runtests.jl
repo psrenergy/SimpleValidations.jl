@@ -3,7 +3,6 @@ using SimpleValidations
 using Test
 
 @testset "SimpleValidations.jl" begin
-
     init_validations()
 
     @test num_validation_errors() == 0
@@ -31,5 +30,4 @@ using Test
     init_validations()
 
     @test num_validation_errors() == 0
-
 end

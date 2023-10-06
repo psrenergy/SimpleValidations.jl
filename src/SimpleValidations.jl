@@ -4,13 +4,12 @@ using JSON
 using OrderedCollections
 
 export num_validation_errors,
-    has_validation_errors, 
-    init_validations, 
-    validation_error, 
+    has_validation_errors,
+    init_validations,
+    validation_error,
     dump_validation_errors,
     ValidationException
 
-    
 include("validations.jl")
 include("io.jl")
 include("exceptions.jl")
