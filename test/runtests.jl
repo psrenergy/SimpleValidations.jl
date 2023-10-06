@@ -2,28 +2,34 @@ using SimpleValidations
 
 using Test
 
-init_validations()
+@testset "SimpleValidations.jl" begin
 
-@test num_validation_errors() == 0
+    init_validations()
 
-validation_error(;
-    element_collection = "ElementCollection",
-    element_name = "ElementName",
-    element_identifier = "Id",
-    message = "test message",
-)
+    @test num_validation_errors() == 0
 
-validation_error(;
-    element_collection = "ElementCollection",
-    element_name = "ElementName2",
-    element_identifier = "Id",
-)
+    validation_error(;
+        element_collection = "ElementCollection",
+        element_name = "ElementName",
+        element_identifier = "Id",
+        message = "test message",
+    )
 
-@test num_validation_errors() == 2
-@test has_validation_errors() == true
+    validation_error(;
+        element_collection = "ElementCollection",
+        element_name = "ElementName2",
+        element_identifier = "Id",
+    )
 
-dump_validation_errors(raw"./test.json")
+    @test num_validation_errors() == 2
+    @test has_validation_errors() == true
 
-init_validations()
+    @test_throws ValidationException throw(ValidationException())
 
-@test num_validation_errors() == 0
+    dump_validation_errors(raw"test.json")
+
+    init_validations()
+
+    @test num_validation_errors() == 0
+
+end
