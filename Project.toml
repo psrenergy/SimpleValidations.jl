@@ -6,6 +6,12 @@ version = "0.1.0"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 OrderedCollections = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 
+[weakdeps]
+LoggingPolyglot = "211639cc-9b11-4cfd-abc6-8f7477829344"
+
+[extensions]
+LoggingPolyglotExt = "LoggingPolyglot"
+
 [compat]
 JSON = "0.21"
 OrderedCollections = "1.6"
