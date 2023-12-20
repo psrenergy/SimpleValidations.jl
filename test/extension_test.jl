@@ -14,6 +14,10 @@ function test_loggingpolyglot_ext()
             "en" => "Iteration @@@",
             "pt" => "Iteração @@@",
         ),
+        4 => Dict(
+            "en" => "Iteration @@@ @@@ @@@",
+            "pt" => "Iteração @@@ @@@ @@@",
+        ),
     )
     LoggingPolyglot.set_dict(langs_dict)
     LoggingPolyglot.set_language("pt")
@@ -28,6 +32,28 @@ function test_loggingpolyglot_ext()
 
     @test num_validation_errors() == 1
     @test has_validation_errors() == true
+
+    LoggingPolyglot.set_language("en")
+
+    validation_error(;
+        collection = "ElementCollection",
+        attribute = "ElementName2",
+        identifier = "Id",
+        message = (3, "10"),
+    )
+
+    validation_error(;
+        collection = "ElementCollection",
+        attribute = "ElementName3",
+        identifier = "Id",
+        message = (4, "10", "11", "12"),
+    )
+
+    validation_dict = SimpleValidations._create_validation_vector_dict()
+
+    @test validation_dict[1]["message"] == "Iteração 10"
+    @test validation_dict[2]["message"] == "Iteration 10"
+    @test validation_dict[3]["message"] == "Iteration 10 11 12"
 end
 
 test_loggingpolyglot_ext()
