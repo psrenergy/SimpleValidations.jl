@@ -16,4 +16,9 @@ include("exceptions.jl")
 
 const VALIDATIONS = Vector{ValidationError}(undef, 0)
 
+if !isdefined(Base, :get_extension)
+    include("../ext/LoggingPolyglotExt.jl")
+end
+
+
 end # module SimpleValidations
