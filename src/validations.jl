@@ -11,16 +11,16 @@ function init_validations()
 end
 
 function validation_error(;
-    element_collection::String = "",
-    element_name::String = "",
-    element_identifier::Union{String, Real} = "",
+    collection::String = "",
+    attribute::String = "",
+    identifier::Union{String, Real} = "",
     message::Union{String, Nothing} = nothing,
 )
     if isnothing(message)
-        message = "Validation error for element '$element_name' in collection '$element_collection' with identifier '$element_identifier'"
+        message = "Validation error for attribute '$attribute' in collection '$collection' with identifier '$identifier'"
     end
     @error message
     validation_error =
-        ValidationError(message, element_name, element_collection, element_identifier)
+        ValidationError(message, attribute, collection, identifier)
     return _add_error(validation_error)
 end
