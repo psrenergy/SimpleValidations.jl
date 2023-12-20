@@ -7,8 +7,13 @@ function _create_validation_dict(validation_error::ValidationError)
     )
 end
 
-_create_validation_vector_dict() =
-    [_create_validation_dict(validation_error) for validation_error in VALIDATIONS]
+function _create_validation_vector_dict()
+    vector_validations_dict = Vector{OrderedDict{String, Any}}(undef, length(VALIDATIONS))
+    for (i, validation_error) in enumerate(VALIDATIONS)
+        vector_validations_dict[i] = _create_validation_dict(validation_error)
+    end
+    return vector_validations_dict
+end
 
 function dump_validation_errors(path::String)
     Base.open(path, "w") do io

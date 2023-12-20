@@ -1,3 +1,9 @@
+mutable struct ValidationError
+    message::String
+    attribute::String
+    collection::String
+    identifier::Union{String, Real}
+end
 
 num_validation_errors() = length(VALIDATIONS)
 has_validation_errors() = num_validation_errors() > 0

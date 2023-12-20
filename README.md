@@ -46,5 +46,8 @@ if john_smith.grade < 0
     )
 end
 
-dump_validation_errors("validation_errors.json")
+if has_validation_errors()
+    dump_validation_errors("validation_errors.json")
+    throw(ValidationException())
+end
 ```
