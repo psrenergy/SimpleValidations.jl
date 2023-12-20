@@ -39,9 +39,9 @@ john_smith = Student("John Smith", -5.0, "1234567890")
 
 if john_smith.grade < 0
     validation_error(
-        element_collection = "Student",
-        element_name = "Grade", 
-        element_identifier = john_smith.student_id,
+        collection = "Student",
+        attribute = "Grade", 
+        identifier = john_smith.student_id,
         message = "Grade cannot be negative",
     )
 end

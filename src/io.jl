@@ -1,9 +1,9 @@
 function _create_validation_dict(validation_error::ValidationError)
     return OrderedDict{String, Any}(
         "message" => validation_error.message,
-        "element_name" => validation_error.element_name,
-        "element_collection" => validation_error.element_collection,
-        "element_identifier" => validation_error.element_identifier,
+        "attribute" => validation_error.attribute,
+        "collection" => validation_error.collection,
+        "identifier" => validation_error.identifier,
     )
 end
 
