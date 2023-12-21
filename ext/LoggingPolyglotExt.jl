@@ -6,7 +6,7 @@ function SimpleValidations.validation_error(;
     collection::String = "",
     attribute::String = "",
     identifier::Union{String, Real} = "",
-    message::Union{Tuple},
+    message::Tuple,
 )
     separated_messages = vcat(message...)
     polyglot_message =
