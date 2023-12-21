@@ -1,3 +1,5 @@
+const JSON_IDENT_SPACES = 4
+
 function _create_validation_dict(validation_error::ValidationError)
     return OrderedDict{String, Any}(
         "message" => validation_error.message,
@@ -17,6 +19,6 @@ end
 
 function dump_validation_errors(path::String)
     Base.open(path, "w") do io
-        return JSON.print(io, _create_validation_vector_dict())
+        return JSON.print(io, _create_validation_vector_dict(), JSON_IDENT_SPACES)
     end
 end
