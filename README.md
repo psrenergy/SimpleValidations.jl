@@ -4,8 +4,8 @@ Interface for making simple validations in the database.
 You use it to collect different validation errors across your application and display them in a JSON file.
 
 
-[build-img]: https://github.com/psrenergy/SimpleValidations.jl/workflows/CI/badge.svg?branch=master
-[build-url]: https://github.com/psrenergy/SimpleValidations.jl/actions?query=workflow%3ACI
+[build-img]: https://github.com/psrenergy/SimpleValidations.jl/actions/workflows/ci.yml/badge.svg
+[build-url]: https://github.com/psrenergy/SimpleValidations.jl/actions/workflows/ci.yml
 
 [codecov-img]: https://codecov.io/gh/psrenergy/SimpleValidations.jl/coverage.svg?branch=master
 [codecov-url]: https://codecov.io/gh/psrenergy/SimpleValidations.jl?branch=master
