@@ -2,10 +2,10 @@ module LoggingPolyglotExt
 
 using SimpleValidations, LoggingPolyglot
 
-function SimpleValidations.validation_error(;
-    collection::String = "",
-    attribute::String = "",
-    identifier::Union{String, Real} = "",
+function SimpleValidations.validation_error(
+    collection::String,
+    attribute::String,
+    identifier::Union{String, Real},
     message::Tuple,
 )
     separated_messages = vcat(message...)
