@@ -16,11 +16,11 @@ function init_validations()
     return empty!(VALIDATIONS)
 end
 
-function validation_error(;
-    collection::String = "",
-    attribute::String = "",
-    identifier::Union{String, Real} = "",
-    message::Union{String, Nothing} = nothing,
+function validation_error(
+    collection::String,
+    attribute::String,
+    identifier::Union{String, Real},
+    message::Union{String, Nothing},
 )
     if isnothing(message)
         message = "Validation error for attribute '$attribute' in collection '$collection' with identifier '$identifier'"
@@ -29,4 +29,18 @@ function validation_error(;
     validation_error =
         ValidationError(message, attribute, collection, identifier)
     return _add_error(validation_error)
+end
+
+function validation_error(;
+    collection::String = "",
+    attribute::String = "",
+    identifier::Union{String, Real} = "",
+    message = nothing,
+)
+    return validation_error(
+        collection,
+        attribute,
+        identifier,
+        message,
+    )
 end
