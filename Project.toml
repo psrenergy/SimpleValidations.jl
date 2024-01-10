@@ -1,6 +1,6 @@
 name = "SimpleValidations"
 uuid = "5ead8e6a-226e-4abd-9fac-4ba193e998ab"
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
